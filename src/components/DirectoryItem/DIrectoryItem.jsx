@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import {
   BackgroundImage,
   Body,
-  DirectoryItemContainer } from './DirectoryItem.styles'
+  DirectoryItemContainer
+} from './DirectoryItem.styles'
 
 
 const DirectoryItem = ({ category }) => {
