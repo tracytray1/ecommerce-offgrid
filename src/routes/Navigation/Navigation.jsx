@@ -11,7 +11,7 @@ import { signOutUser } from '../../utils/firebase/firebase'
 
 import OffgridLogo from '../../assets/offgrid-logo.svg?react';
 
-import './navigation.scss'
+import { LogoContainer, NavigationContainer, NavLink, NavLinksContainer } from './Navigation.styles'
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
@@ -19,26 +19,26 @@ const Navigation = () => {
 
   return (
     <Fragment>
-      <div className="navigation">
-        <Link className="logo-container" to="/">
+      <NavigationContainer>
+        <LogoContainer to="/">
           <OffgridLogo className="logo" />
-        </Link>
-        <div className="nav-links-container">
-          <Link className="nav-link" to='/shop'>
+        </LogoContainer>
+        <NavLinksContainer>
+          <NavLink to='/shop'>
             SHOP
-          </Link>
+          </NavLink>
           {
             currentUser ? (
-              <span className='nav-link' onClick={signOutUser} >SIGN OUT</span>)
-              : (<Link className="nav-link" to='/auth'>
+              <NavLink as='span' onClick={signOutUser} >SIGN OUT</NavLink>)
+              : (<NavLink to='/auth'>
                 SIGN IN
-              </Link>
+              </NavLink>
             )
           }
           <CartIcon />
-        </div>
+        </NavLinksContainer>
         {isCartOpen && <CartDropdown />}
-      </div>
+      </NavigationContainer>
       <Outlet />
     </Fragment>
   );

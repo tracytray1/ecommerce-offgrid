@@ -26,8 +26,6 @@ const Category = () => {
       </div>
     </Fragment>
     )
-
-
   }
 
 
